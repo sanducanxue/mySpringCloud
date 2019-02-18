@@ -1,0 +1,17 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+server:
+  port: 8769
+spring:
+  application:
+    name: feign_api-zuul
+zuul:
+  routes:
+    api-a:
+      path: /feign_api-a/**
+      serviceId: feign_api-ribbon
+    api-b:
+      path: /feign_api-b/**
+      serviceId: feign_api-feign
